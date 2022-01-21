@@ -25,6 +25,7 @@ import InteractionPanel from "./Interactions";
 import Login from "./Login";
 import Docs from "./Component/DashBoard/Documentations/Docs";
 import SignIn from "./login/signin";
+import SignUp from "./login/signup";
 
 import LoggedinUsers from './Component/AdminComponents/LoggedInUsers';
 import RegisteredUsers from './Component/AdminComponents/RegisteredUsers';
@@ -93,6 +94,10 @@ const routes = [
     {
         path: 'signin',
         element: <SignIn />
+    },
+    {
+        path: 'signup',
+        element: <SignUp />
     },
     {
         path: 'dashboard',

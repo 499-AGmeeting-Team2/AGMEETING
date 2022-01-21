@@ -1,0 +1,3 @@
+- Finish peer evaluation 2
+- Finish peer testing report
+- Work on client's request to compare the old and new version of the product and point out what are needed to add

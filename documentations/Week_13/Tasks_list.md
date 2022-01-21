@@ -1,0 +1,4 @@
+- Add the login page and registration page
+- Notification on top right
+- In vault, missing add document button and eliminate certain column
+- Interaction button needed, copy module from the general setting (Apply setting button)

@@ -1,0 +1,6 @@
+Tasks competed this week:
+- Read the Agmeeting handbook to see what components we are yet to add in the front end of the website
+- Had a meeting with prof to regarding the tasks completed this week.
+- Expored socket.io and understood its functionalities to implement in our project 
+- Completed the peer testing report.
+- adminestered the final user feedback task and collected the data.
