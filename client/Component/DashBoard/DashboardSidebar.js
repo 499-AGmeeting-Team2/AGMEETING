@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import {
@@ -34,6 +34,7 @@ import HomeIcon from "../../icons/Home";
 import Logo from "../../Logo";
 import NavSection from "../../NavSection";
 import Scrollbar from "../../Scrollbar";
+import Modal from "../Interaction/Modal";
 // import { Receipt } from '@material-ui/icons';
 
 const sections = [
@@ -48,73 +49,73 @@ const sections = [
     ],
   },
   {
-    title: 'Events',
+    title: "Events",
     items: [
       {
-        title: 'New Event',
-        path: '/dashboard/event-manage',
-        icon: <ClipboardListIcon fontSize="small" />
+        title: "New Event",
+        path: "/dashboard/event-manage",
+        icon: <ClipboardListIcon fontSize="small" />,
       },
       {
-        title: 'Event Management',
-        path: '/dashboard/list',
-        icon: <ClipboardListIcon fontSize="small" />
-      }
-    ]
+        title: "Event Management",
+        path: "/dashboard/list",
+        icon: <ClipboardListIcon fontSize="small" />,
+      },
+    ],
   },
   {
     title: "Interaction",
     items: [
       {
-        title : 'Send Messages',
-        path: '/dashboard/ContentMessage',
-        icon: <MailIcon fontSize="small" />
+        title: "Send Messages",
+        path: "/dashboard/ContentMessage",
+        icon: <MailIcon fontSize="small" />,
       },
       {
-        title: 'Chat',
-        path: '/dashboard/chat',
-        icon: <ChatAltIcon fontSize="small" />
+        title: "Chat",
+        path: "/dashboard/chat",
+        icon: <ChatAltIcon fontSize="small" />,
       },
       {
-        title: 'Calendar',
-        path: '/dashboard/calendar',
-        icon: <CalendarIcon fontSize="small" />
-      }
-    ]
+        title: "Calendar",
+        path: "/dashboard/calendar",
+        icon: <CalendarIcon fontSize="small" />,
+      },
+    ],
   },
   {
-    title: 'General',
+    title: "General",
     items: [
       {
-        title: 'Session',
-        path: '/',
-        icon: <ChartSquareBarIcon fontSize="small" />
+        title: "Session",
+        path: "/",
+        icon: <ChartSquareBarIcon fontSize="small" />,
       },
       {
-        title: 'Agenda',
-        path: '/agenda',
-        icon: <ChartPieIcon fontSize="small" />
+        title: "Agenda",
+        path: "/agenda",
+        icon: <ChartPieIcon fontSize="small" />,
       },
       {
-        title: 'Vault',
-        path: '/Vault',
-        icon: <ShoppingBagIcon fontSize="small" />
+        title: "Vault",
+        path: "/Vault",
+        icon: <ShoppingBagIcon fontSize="small" />,
       },
       // {
       //   title: 'Account',
       //   path: '/dashboard/account',
       //   icon: <UserIcon fontSize="small" />
       // }
-    ]
+    ],
   },
 
   {
-    title: 'Management',
+    title: "Management",
     items: [
       {
         title: 'Users',
         path: '/LoggedinUsers',
-        icon: <UsersIcon fontSize="small"/>,
+        icon: <UsersIcon fontSize="small" />,
         children: [
           {
             title: 'Logged In Users',
@@ -137,10 +138,122 @@ const sections = [
       {
         title: 'General Settings',
         path: '/settings',
-        icon: <ShoppingBagIcon fontSize="small"/>
+        icon: <ShoppingBagIcon fontSize="small" />
       },
-    ],
+
+      // {
+      //   title: 'Products',
+      //   path: '/dashboard/products',
+      //   icon: <ShoppingCartIcon fontSize="small" />,
+      //   children: [
+      //     {
+      //       title: 'List',
+      //       path: '/dashboard/products'
+      //     },
+      //     {
+      //       title: 'Create',
+      //       path: '/dashboard/products/new'
+      //     }
+      //   ]
+      // },
+      // {
+      //   title: 'Orders',
+      //   icon: <FolderOpenIcon fontSize="small" />,
+      //   path: '/dashboard/orders',
+      //   children: [
+      //     {
+      //       title: 'List',
+      //       path: '/dashboard/orders'
+      //     },
+      //     {
+      //       title: 'Details',
+      //       path: '/dashboard/orders/1'
+      //     }
+      //   ]
+      // },
+      // {
+      //   title: 'Invoices',
+      //   path: '/dashboard/invoices',
+      //   icon: <FolderOpenIcon fontSize="small" />,
+      //   children: [
+      //     {
+      //       title: 'List',
+      //       path: '/dashboard/invoices'
+      //     },
+      //     {
+      //       title: 'Details',
+      //       path: '/dashboard/invoices/1'
+      //     }
+      //   ]
+      // }
+    ]
   },
+
+  // {
+  //   title: 'Platforms',
+  //   items: [
+  //     {
+  //       title: 'Projects',
+  //       path: '/dashboard/projects',
+  //       icon: <BriefcaseIcon fontSize="small" />,
+  //       children: [
+  //         {
+  //           title: 'Browse',
+  //           path: '/dashboard/projects/browse'
+  //         },
+  //         {
+  //           title: 'Details',
+  //           path: '/dashboard/projects/1'
+  //         },
+  //         {
+  //           title: 'Create',
+  //           path: '/dashboard/projects/new'
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       title: 'Social',
+  //       path: '/dashboard/social',
+  //       icon: <ShareIcon fontSize="small" />,
+  //       children: [
+  //         {
+  //           title: 'Profile',
+  //           path: '/dashboard/social/profile'
+  //         },
+  //         {
+  //           title: 'Feed',
+  //           path: '/dashboard/social/feed'
+  //         }
+  //       ]
+  //     }
+  //   ]
+  // },
+
+  // {
+  //   title: 'Apps',
+  //   items: [
+  //     {
+  //       title: 'Kanban',
+  //       path: '/dashboard/kanban',
+  //       icon: <ClipboardListIcon fontSize="small" />
+  //     },
+  //     {
+  //       title: 'Mail',
+  //       path: '/dashboard/mail',
+  //       icon: <MailIcon fontSize="small" />
+  //     },
+  //     {
+  //       title: 'Chat',
+  //       path: '/dashboard/chat',
+  //       icon: <ChatAltIcon fontSize="small" />
+  //     },
+  //     {
+  //       title: 'Calendar',
+  //       path: '/dashboard/calendar',
+  //       icon: <CalendarIcon fontSize="small" />
+  //     }
+  //   ]
+  // }
 ];
 
 const DashboardSidebar = (props) => {
@@ -148,6 +261,16 @@ const DashboardSidebar = (props) => {
   const location = useLocation();
   // const { user } = useAuth();
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up("lg"));
+  // Inter new
+  const [isApplicationOpen, setIsApplicationOpen] = useState(false);
+  // temp
+  const handleApplyModalOpen = () => {
+    setIsApplicationOpen(true);
+  };
+  // temp
+  const handleApplyModalClose = () => {
+    setIsApplicationOpen(false);
+  };
 
   useEffect(() => {
     if (openMobile && onMobileClose) {
@@ -237,13 +360,13 @@ const DashboardSidebar = (props) => {
           </Typography>
           <Button
             color="primary"
-            component={RouterLink}
+            onClick={handleApplyModalOpen}
             fullWidth
             sx={{ mt: 2 }}
             to="/docs"
             variant="contained"
           >
-            Documentation
+            Interaction Panel
           </Button>
         </Box>
       </Scrollbar>
@@ -252,39 +375,57 @@ const DashboardSidebar = (props) => {
 
   if (lgUp) {
     return (
-      <Drawer
-        anchor="left"
-        open
-        PaperProps={{
-          sx: {
-            backgroundColor: "background.paper",
-            height: "calc(100% - 64px) !important",
-            top: "64px !Important",
-            width: 280,
-          },
-        }}
-        variant="permanent"
-      >
-        {content}
-      </Drawer>
+      <>
+        <Drawer
+          anchor="left"
+          open
+          PaperProps={{
+            sx: {
+              backgroundColor: "background.paper",
+              height: "calc(100% - 64px) !important",
+              top: "64px !Important",
+              width: 280,
+            },
+          }}
+          variant="permanent"
+        >
+          {content}
+        </Drawer>
+        <Modal
+          // authorAvatar={project.author.avatar}
+          // authorName={project.author.name}
+          onApply={handleApplyModalClose}
+          onClose={handleApplyModalClose}
+          open={isApplicationOpen}
+        />
+      </>
     );
   }
 
   return (
-    <Drawer
-      anchor="left"
-      onClose={onMobileClose}
-      open={openMobile}
-      PaperProps={{
-        sx: {
-          backgroundColor: "background.paper",
-          width: 280,
-        },
-      }}
-      variant="temporary"
-    >
-      {content}
-    </Drawer>
+    <>
+      <Drawer
+        anchor="left"
+        onClose={onMobileClose}
+        open={openMobile}
+        PaperProps={{
+          sx: {
+            backgroundColor: "background.paper",
+            width: 280,
+          },
+        }}
+        variant="temporary"
+      >
+        {content}
+      </Drawer>
+      <Modal
+        // authorAvatar={project.author.avatar}
+        // authorName={project.author.name}
+        onApply={handleApplyModalClose}
+        onClose={handleApplyModalClose}
+        open={isApplicationOpen}
+      />
+    </>
   );
 };
 
