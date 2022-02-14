@@ -12,9 +12,8 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "../public")));
 app.use(express.static(path.join(__dirname, "../dist")));
 
-//db connection
-const { Sequelize } = require("sequelize");
-const db = new Sequelize("postgres://postgres:admin@localhost:5432/postgres");
+// Database
+const db = require("./config/db");
 
 // Test DB
 db.authenticate()
@@ -27,8 +26,12 @@ console.log("Connection has been established successfully.");
 console.error("Unable to connect to the database:", error);
 } */
 
+// gets the model and the required route/controller
+app.use("/users", require("./controllers/users.controller"));
+
 // app.use(express.static("helper"));
 // app.use("/", indexRoutes)
+// gets the homepage
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../dist", "index.html"), function (err) {
     if (err) {
