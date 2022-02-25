@@ -19,7 +19,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // Database
 const db = require("./config/db");
-const { models } = require("./config/db");
+//const { models } = require("./config/db");
+//const allmodels = require("./models/index");
 
 // Test DB
 db.authenticate()
@@ -35,16 +36,17 @@ console.error("Unable to connect to the database:", error);
 //app.use("/users", require("./controllers/users.controller"));
 
 // we have to only get index.js and it will import all the models
-const allmodels = require("./models/index");
 
 //gets the data from signin page
-app.post("/signin", (req) => {
+
+/*app.post("/signin", (req) => {
   console.log(req.body);
   allmodels.User.create({
     email: req.body.email,
     password: req.body.password,
   });
 });
+*/
 
 // app.use(express.static("helper"));
 // app.use("/", indexRoutes)
