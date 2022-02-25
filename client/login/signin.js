@@ -38,6 +38,20 @@ export default function SignIn() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
+    /*
+    axios
+      .post("/signin", {
+        email: data.email,
+        password: data.password,
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+      */
     console.log({
       email: data.get("email"),
       password: data.get("password"),
