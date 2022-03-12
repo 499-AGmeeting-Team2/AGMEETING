@@ -52,6 +52,7 @@
     "react-router-dom": "^6.0.0-beta.8",
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.1",
+    "rxjs": "^7.5.5",
     "sequelize": "^6.16.1",
     "stylis-plugin-rtl": "^2.1.1",
     "validator": "^13.7.0",

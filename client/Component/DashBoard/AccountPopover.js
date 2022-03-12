@@ -16,7 +16,7 @@ import {
 } from "@mui/material";
 import CogIcon from "../../icons/Cog";
 import UserIcon from "../../icons/User";
-import {authenticationService} from "../../../server/services/authentication.service";
+import { authenticationService } from "../../../server/services/authentication.service";
 
 const AccountPopover = () => {
   const anchorRef = useRef(null);
@@ -62,7 +62,7 @@ const AccountPopover = () => {
             width: 32,
           }}
           alt={currentUser.client_name}
-          src='../../../misc/img.png'
+          src="../../../misc/img.png"
         />
       </Box>
       <Popover
