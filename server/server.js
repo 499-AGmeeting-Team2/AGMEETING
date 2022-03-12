@@ -10,23 +10,24 @@ const DIST_DIR = path.join(__dirname, "public");
 const HTML_FILE = path.join(DIST_DIR, "index.html");
 
 //controllers
-const indexController = require("./controllers/index.controller")
+const indexController = require("./controllers/index.controller");
 
 //passport
 const passport = require("passport");
-require('dotenv').config();
+require("dotenv").config();
 require("./config/passport");
-const session    = require('express-session');
-const bodyParser = require('body-parser');
+const session = require("express-session");
+const bodyParser = require("body-parser");
 
 //For BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 //For handleBars
 
-
 app.use(express.json());
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+); // session secret
 app.use(express.static(path.join(__dirname, "../public")));
 app.use(express.static(path.join(__dirname, "../dist")));
 
@@ -44,14 +45,16 @@ app.use("/api/v1", indexController);
 try {
   db.sequelize.authenticate().then(() => {
     console.log("Connection has been established successfully.");
-    allModels.client.findAll().then((results) => {
-      console.log(results);
-    }).catch(err => console.log(err));
+    allModels.client
+      .findAll()
+      .then((results) => {
+        console.log(results);
+      })
+      .catch((err) => console.log(err));
   });
 } catch (error) {
   console.error("Unable to connect to the database:", error);
 }
-
 
 // app.use(express.static("helper"));
 // app.use("/", indexRoutes)
