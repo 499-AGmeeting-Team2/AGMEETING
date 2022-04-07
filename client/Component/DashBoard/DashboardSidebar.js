@@ -225,6 +225,11 @@ const sectionsClient = [
         path: "/Vault",
         icon: <ShoppingBagIcon fontSize="small" />,
       },
+      {
+        title: "Message",
+        path: "/Message",
+        icon: <ChatAltIcon fontSize='small'/>,
+      }
     ]
   }
 ];

@@ -25,6 +25,8 @@ import SignIn from "./login/signin";
 import SignUp from "./login/signup";
 import LandingPage from "./LandingPage";
 
+import Test from "./Component/ChatComponents/Test"
+
 // // Declarative routing model
 // return (
 //     <Router>
@@ -43,6 +45,10 @@ const routes = [
   {
     path: "/about",
     element: <About />
+  },
+  {
+    path: "/Message",
+    element: <Test />
   },
   {
     path: "/",
