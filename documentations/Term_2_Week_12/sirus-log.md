@@ -28,3 +28,6 @@ Next week:
     - extend the deadline with client
     - what to work on for the extended period
     - how to distribute the work
+    - work on final report
+    - work on implementation
+    - work on demo video
