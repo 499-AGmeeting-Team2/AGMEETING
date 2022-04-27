@@ -64,11 +64,27 @@ router.get("/meetings/add/:meetingId/:clientId", passport.authenticate("jwt", {s
     console.log(newUserMeeting)
     const saved = await newUserMeeting.save().catch((err) => {
         console.log("Error: ", err);
-        res.json({error: "Cannot join meeting at the moment."});
+        res.json({message: "Cannot join meeting at the moment."});
     });
 
     if(saved)
         res.json({message: "Successfully joined the meeting. Please go to Registered Meeting tab to see meetings that you have joined."});
+
+})
+
+router.post("/meetings/add", passport.authenticate("jwt", {session: false} ),async(req, res) =>{
+
+    const {modId, adminId, companyId, timeStart, timeEnd} = req.body;
+
+    const newMeeting = new meeting({mod_id: modId, admin_id: adminId, company_id: companyId, time_start: timeStart, time_end: timeEnd});
+    console.log(newUserMeeting)
+    const saved = await newMeeting.save().catch((err) => {
+        console.log("Error: ", err);
+        res.json({message: "Error when saving new meeting. Please try again later"});
+    });
+
+    if(saved)
+        res.json({message: "Successfully create a new meeting."});
 
 })
 

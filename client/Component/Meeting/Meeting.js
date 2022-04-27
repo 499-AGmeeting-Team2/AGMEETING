@@ -26,6 +26,7 @@ import {
 import Scrollbar from "../../Scrollbar";
 import ArrowRightIcon from "../../icons/ArrowRight";
 import PencilAltIcon from "../../icons/PencilAlt";
+import Plus from "../../icons/Plus";
 import SearchIcon from "../../icons/Search";
 import { meetingService } from "../../../server/services/meeting.service";
 import validator from "validator";
@@ -140,14 +141,15 @@ const Meeting = () => {
                             ))}
                         </TextField>
                     </Box>
-                    <Box
-                        sx={{
-                            m: 1,
-                            width: 240,
-                        }}
+                    <Button
+                        color="primary"
+                        startIcon={<Plus fontSize="small" />}
+                        sx={{ m: 1 }}
+                        variant="contained"
                     >
-                        {/*/<FileModal />*/}
-                    </Box>
+                        Add Meeting
+                        <EditModal id={customer.id} />
+                    </Button>
                 </Box>
                 <Scrollbar>
                     <Box sx={{ minWidth: 700 }}>

@@ -33,7 +33,7 @@ const sectionsAdmin = [
             path: "/meeting",
           },
           {
-            title: "Registered Meetings",
+            title: "Your Meetings",
             path: "/registeredmeeting",
           },
         ],
@@ -105,7 +105,7 @@ const sectionsClient = [
             path: "/meeting",
           },
           {
-            title: "Registered Meetings",
+            title: "Your Meetings",
             path: "/registeredmeeting",
           },
         ],
